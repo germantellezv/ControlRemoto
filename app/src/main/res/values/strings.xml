@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Control Remoto</string>
+    <string name="title_activity_main2">Control Remoto</string>
+    <string name="title_activity_main3">Ajustes</string>
+    <string name="TvBienvenido">¡Bienvenido!</string>
+    <string name="BtnConectar">CONECTAR</string>
+    <string name="BtnAjustes">AJUSTES</string>
+    <string name="TvMotor">Motor</string>
+    <string name="TvDireccion">Dirección</string>
+    <string name="RbIzquierdo">Izquierdo</string>
+    <string name="RbDerecho">Derecho</string>
+    <string name="RbAmbos">Ambos</string>
+    <string name="RbAdelante">Adelante</string>
+    <string name="RbReversa">Reversa</string>
+    <string name="BtnDetener">DETENER</string>
+    <string name="BtnMover">MOVER</string>
+    <string name="BtnSalir">SALIR</string>
+    <string name="TvAjustesDesarrolladores">AJUSTES PARA DESARROLLADORES</string>
+    <string name="TvAjustesPuerto">PUERTO:</string>
+    <string name="TvAjustesDireccion">DIRECCION IP:</string>
+    <string name="BtnGuardar">GUARDAR</string>
+
+</resources>
