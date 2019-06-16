@@ -13,7 +13,9 @@
             android:theme="@style/AppTheme">
         <activity android:name=".test">
         </activity>
-        <activity android:name=".SplashScreen">
+        <activity
+                android:name=".SplashScreen"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar"> <!--- Se agrego esta linea para ocultar el action bar -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
