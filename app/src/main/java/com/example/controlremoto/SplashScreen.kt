@@ -8,7 +8,7 @@ import android.os.Handler
 class SplashScreen : AppCompatActivity() {
 
     private var mDelayHandler: Handler? = null
-    private val SPLASH_DELAY: Long = 2000 //2 seconds
+    private val SPLASH_DELAY: Long = 1000 //1 seconds
 
     internal val mRunnable: Runnable = Runnable {
         if (!isFinishing) {

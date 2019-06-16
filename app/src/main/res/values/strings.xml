@@ -19,5 +19,5 @@
     <string name="TvAjustesPuerto">PUERTO:</string>
     <string name="TvAjustesDireccion">DIRECCION IP:</string>
     <string name="BtnGuardar">GUARDAR</string>
-
+    <string name="TvInstruccion">Especifica la dirección IP para establecer conexión con el robot</string>
 </resources>
