@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         Conectar = findViewById(R.id.ButtonConnect) as Button
         Conectar?.setOnClickListener{
 
-            var url="http://10.3.141.1:5000/api/v1/login"
+            var url="http://192.168.50.1:5000/api/v1/login"
                 .httpGet().responseJson{ request, response, result ->
                     when (result) {
                         is Result.Failure -> {
