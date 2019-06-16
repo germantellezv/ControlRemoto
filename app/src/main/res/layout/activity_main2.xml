@@ -1,202 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".Main2Activity"
         android:background="@color/secondaryColor">
 
-    <Button
-            android:id="@+id/button"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="63dp"
-            android:layout_marginBottom="34dp"
-            android:text="@string/BtnMover"
-            app:layout_constraintBottom_toTopOf="@+id/button3"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:backgroundTint="@color/primaryColor"
-            android:textColor="@color/secondaryTextColor"
-
+    <ImageView
+            android:id="@+id/ic_joystick_mover"
+            android:src="@drawable/ic_joystick"
+            android:tint="@color/whiteColor"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
     />
-
-    <TextView
-            android:id="@+id/textView4"
-            android:layout_width="135dp"
-            android:layout_height="41dp"
-            android:layout_marginStart="59dp"
-            android:gravity="center"
-            android:text="@string/TvMotor"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/radioGroup2"
-            app:layout_constraintEnd_toStartOf="@+id/textView5"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textColor="@color/secondaryTextColor"/>
-
-    <TextView
-            android:id="@+id/textView5"
-            android:layout_width="135dp"
-            android:layout_height="41dp"
-            android:layout_marginEnd="52dp"
-            android:gravity="center"
-            android:text="@string/TvDireccion"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/radioGroup"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:textColor="@color/secondaryTextColor"/>
-
-    <RadioGroup
-            android:id="@+id/radioGroup2"
-            android:layout_width="135dp"
-            android:layout_height="125dp"
-            android:layout_marginBottom="39dp"
-            app:layout_constraintBottom_toTopOf="@+id/button2"
-            app:layout_constraintEnd_toEndOf="@+id/button2"
-            app:layout_constraintHorizontal_bias="0.666"
-            app:layout_constraintStart_toStartOf="@+id/button2">
-
-        <RadioButton
-                android:id="@+id/radioButton_left"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/RbIzquierdo"
-                android:textColor="@color/secondaryTextColor"
-                />
-
-        <RadioButton
-                android:id="@+id/radioButton_right"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/RbDerecho"
-                android:textColor="@color/secondaryTextColor"
-                />
-
-        <RadioButton
-                android:id="@+id/radioButton_both"
-                android:layout_width="111dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/RbAmbos"
-                android:textColor="@color/secondaryTextColor"
-                />
-
-    </RadioGroup>
-
-    <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="135dp"
-            android:layout_height="125dp"
-            android:layout_marginBottom="36dp"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintEnd_toEndOf="@+id/button"
-            app:layout_constraintStart_toStartOf="@+id/button"
-            app:layout_constraintHorizontal_bias="0.333">
-
-        <RadioButton
-                android:id="@+id/radioButton_F"
-                android:layout_width="135dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/RbAdelante"
-                android:textColor="@color/secondaryTextColor"
-
-
-        />
-
-        <RadioButton
-                android:id="@+id/radioButton_R"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/RbReversa"
-                android:textColor="@color/secondaryTextColor"
-        />
-    </RadioGroup>
 
     <TextView
             android:id="@+id/textView6"
-            android:layout_width="350dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="17dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="17dp"
-            android:layout_marginBottom="15dp"
-            android:gravity="center"
-            app:layout_constraintBottom_toTopOf="@+id/editVelocidad"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-            android:id="@+id/editVelocidad"
-            android:layout_width="240dp"
-            android:layout_height="41dp"
-            android:layout_marginStart="72dp"
-            android:layout_marginEnd="72dp"
-            android:layout_marginBottom="4dp"
-            android:ems="10"
-            android:hint="Velocidad"
-            android:inputType="number"
-            android:textAlignment="center"
-            android:textColor="@color/secondaryTextColor"
-            android:textColorHint="@color/secondaryTextColor"
-            android:backgroundTint="@color/whiteColor"
-            app:layout_constraintBottom_toTopOf="@+id/editTiempo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-            android:id="@+id/editTiempo"
-            android:layout_width="240dp"
-            android:layout_height="41dp"
-            android:layout_marginStart="72dp"
-            android:layout_marginEnd="72dp"
-            android:layout_marginBottom="13dp"
-            android:ems="10"
-            android:hint="Tiempo"
-            android:inputType="number"
-            android:textAlignment="center"
-            android:backgroundTint="@color/whiteColor"
-            android:textColorHint="@color/secondaryTextColor"
-            app:layout_constraintBottom_toTopOf="@+id/textView4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-            android:id="@+id/button2"
-            android:layout_width="120dp"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"/>
+    <GridLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/primaryColor"
-            android:layout_marginStart="69dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="34dp"
-            android:text="@string/BtnDetener"
-            android:textColor="@color/secondaryTextColor"
-            app:layout_constraintBottom_toTopOf="@+id/button3"
-            app:layout_constraintEnd_toStartOf="@+id/button"
-            app:layout_constraintStart_toStartOf="parent"
+            android:rowCount="2">
 
-    />
+        <EditText
+                android:id="@+id/editVelocidad"
+                android:layout_width="240dp"
+                android:layout_height="41dp"
+                android:ems="10"
+                android:hint="Velocidad"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:textColor="@color/secondaryTextColor"
+                android:textColorHint="@color/secondaryTextColor"
+                android:backgroundTint="@color/whiteColor"
+                android:layout_row="0"
+                android:layout_gravity="center_horizontal"/>
+
+        <EditText
+                android:id="@+id/editTiempo"
+                android:layout_width="240dp"
+                android:layout_height="41dp"
+                android:backgroundTint="@color/whiteColor"
+                android:ems="10"
+                android:hint="Tiempo"
+                android:textColorHint="@color/secondaryTextColor"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:layout_column="0"
+                android:layout_row="1"
+                android:layout_gravity="center_horizontal"/>
+
+    </GridLayout>
+
+
+    <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2">
+        <TextView
+                android:id="@+id/textView4"
+                android:layout_width="135dp"
+                android:layout_height="41dp"
+                android:gravity="center"
+                android:text="@string/TvMotor"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/secondaryTextColor"
+                android:layout_columnWeight="1"/>
+
+        <TextView
+                android:id="@+id/textView5"
+                android:layout_width="135dp"
+                android:layout_height="41dp"
+                android:gravity="center"
+                android:text="@string/TvDireccion"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/secondaryTextColor"
+                android:layout_columnWeight="1"/>
+    </GridLayout>
+
+    <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="4">
+
+        <RadioGroup
+                android:id="@+id/radioGroup2"
+                android:layout_columnWeight="1"
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+        >
+
+            <RadioButton
+                    android:id="@+id/radioButton_left"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/RbIzquierdo"
+                    android:textColor="@color/secondaryTextColor"/>
+
+            <RadioButton
+                    android:id="@+id/radioButton_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/RbDerecho"
+                    android:textColor="@color/secondaryTextColor"/>
+
+            <RadioButton
+                    android:id="@+id/radioButton_both"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/RbAmbos"
+                    android:textColor="@color/secondaryTextColor"/>
+
+        </RadioGroup>
+
+        <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_gravity="center_vertical"
+                android:layout_columnWeight="1"
+                >
+
+            <RadioButton
+                    android:id="@+id/radioButton_F"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/RbAdelante"
+                    android:textColor="@color/secondaryTextColor"/>
+
+            <RadioButton
+                    android:id="@+id/radioButton_R"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/RbReversa"
+                    android:textColor="@color/secondaryTextColor"/>
+
+        </RadioGroup>
+    </GridLayout>
+
+    <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:layout_marginTop="10dp"
+    >
+
+        <Button
+                android:id="@+id/button2"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:backgroundTint="@color/primaryColor"
+                android:text="@string/BtnDetener"
+                android:textColor="@color/secondaryTextColor"
+
+        />
+
+        <Button
+                android:id="@+id/button"
+                android:layout_columnWeight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/BtnMover"
+                android:backgroundTint="@color/primaryColor"
+                android:textColor="@color/secondaryTextColor"
+
+        />
+
+    </GridLayout>
+
 
     <Button
             android:id="@+id/button3"
-            android:layout_width="120dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/primaryColor"
-            android:layout_marginStart="132dp"
-            android:layout_marginEnd="132dp"
-            android:layout_marginBottom="16dp"
             android:text="@string/BtnSalir"
             android:textColor="@color/secondaryTextColor"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
     />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
