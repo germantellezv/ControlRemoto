@@ -104,6 +104,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:buttonTint="@color/whiteColor"
                     android:text="@string/RbIzquierdo"
                     android:textColor="@color/secondaryTextColor"/>
 
@@ -112,6 +113,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:buttonTint="@color/whiteColor"
                     android:text="@string/RbDerecho"
                     android:textColor="@color/secondaryTextColor"/>
 
@@ -120,6 +122,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:buttonTint="@color/whiteColor"
                     android:text="@string/RbAmbos"
                     android:textColor="@color/secondaryTextColor"/>
 
@@ -136,6 +139,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:buttonTint="@color/whiteColor"
                     android:text="@string/RbAdelante"
                     android:textColor="@color/secondaryTextColor"/>
 
@@ -144,6 +148,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:buttonTint="@color/whiteColor"
                     android:text="@string/RbReversa"
                     android:textColor="@color/secondaryTextColor"/>
 
