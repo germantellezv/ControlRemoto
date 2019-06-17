@@ -16,7 +16,7 @@
             android:layout_height="200dp"
             android:tint="@color/whiteColor"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="70dp"
     />
 
     <TextView
@@ -31,46 +31,76 @@
             android:textColor="@color/secondaryTextColor"
             android:textStyle="bold"/>
 
-    <EditText
-            android:id="@+id/ipAddress"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp"
-            android:background="@color/whiteColor"
-            android:text="192.168.50.1"
-            android:textAlignment="center"
+    <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2">
 
-    />
+        <TextView
+                android:id="@+id/txvDirIP"
+                android:text="@string/TvDireccionIP"
+                android:textColor="@color/secondaryTextColor"
+                android:layout_gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:textAlignment="center"
+        />
+
+        <EditText
+                android:id="@+id/ipAddress"
+                android:layout_column="1"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:background="@color/whiteColor"
+                android:text="192.168.50.1"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_columnWeight="1"
+        />
+
+    </GridLayout>
+
+    <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2">
+
+        <TextView
+                android:id="@+id/txvPort"
+                android:text="@string/TvPuerto"
+                android:textColor="@color/secondaryTextColor"
+                android:layout_columnWeight="1"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+        />
+
+        <EditText
+                android:id="@+id/editPort"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@color/whiteColor"
+                android:text="5555"
+                android:layout_columnWeight="1"
+                android:textAlignment="center"/>
+
+
+    </GridLayout>
 
     <Button
             android:id="@+id/ButtonConnect"
-            android:layout_width="180dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:backgroundTint="@color/primaryColor"
             android:layout_gravity="center_horizontal"
             android:text="@string/BtnConectar"
             android:textColor="@color/secondaryTextColor"
-            />
-
-    <Button
-            android:id="@+id/btnProbar"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/primaryColor"
-            android:text="@string/BtnAjustes"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@color/secondaryTextColor"/>
-    <TextView
-            android:id="@+id/textView8"
-            android:hint="...texto de prueba..."
-            android:layout_width="180dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:textColorHint="@color/secondaryTextColor"
-
     />
 
 </LinearLayout>

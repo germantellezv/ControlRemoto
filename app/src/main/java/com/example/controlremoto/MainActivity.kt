@@ -18,17 +18,24 @@ class MainActivity : AppCompatActivity() {
     private var mensaje:TextView? = null
     private var probar:Button?=null
     private var dirip: EditText?=null
+    private var port:EditText?=null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         mensaje = findViewById(R.id.textView3) as TextView
-        probar = findViewById(R.id.btnProbar) as Button
         dirip = findViewById(R.id.ipAddress) as EditText
         Conectar = findViewById(R.id.ButtonConnect) as Button
+        port = findViewById(R.id.editPort) as EditText
+
+        // Configurar direccion ip y puerto de manera centralizada
+        var ipaddress = dirip?.text
+        var puerto = port?.text
+
         Conectar?.setOnClickListener{
 
-            var url="http://192.168.50.1:5555/api/v1/login"
+            var url="http://$ipaddress:$puerto/api/v1/login"
                 .httpGet().responseJson{ request, response, result ->
                     when (result) {
                         is Result.Failure -> {
@@ -49,12 +56,5 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
         }
-        probar?.setOnClickListener{
-            textView8.setText(dirip!!.text)
-        }
-
-
-
-
     }
 }
