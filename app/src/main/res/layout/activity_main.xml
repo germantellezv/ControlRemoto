@@ -55,12 +55,22 @@
             />
 
     <Button
-            android:id="@+id/btnAjustes"
+            android:id="@+id/btnProbar"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/primaryColor"
             android:text="@string/BtnAjustes"
             android:layout_gravity="center_horizontal"
             android:textColor="@color/secondaryTextColor"/>
+    <TextView
+            android:id="@+id/textView8"
+            android:hint="...texto de prueba..."
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textColorHint="@color/secondaryTextColor"
+
+    />
 
 </LinearLayout>

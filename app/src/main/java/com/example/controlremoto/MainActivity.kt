@@ -4,27 +4,31 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.result.Result
+import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
     private var Conectar:Button?= null
     private var mensaje:TextView? = null
-    private var ajustes:Button?=null
+    private var probar:Button?=null
+    private var dirip: EditText?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         mensaje = findViewById(R.id.textView3) as TextView
-        ajustes = findViewById(R.id.btnAjustes) as Button
+        probar = findViewById(R.id.btnProbar) as Button
+        dirip = findViewById(R.id.ipAddress) as EditText
         Conectar = findViewById(R.id.ButtonConnect) as Button
         Conectar?.setOnClickListener{
 
-            var url="http://192.168.3.108:5555/api/v1/login"
+            var url="http://192.168.50.1:5555/api/v1/login"
                 .httpGet().responseJson{ request, response, result ->
                     when (result) {
                         is Result.Failure -> {
@@ -45,9 +49,8 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
         }
-        ajustes?.setOnClickListener{
-            val intent = Intent(this,Main3Activity::class.java)
-            startActivity(intent)
+        probar?.setOnClickListener{
+            textView8.setText(dirip!!.text)
         }
 
 

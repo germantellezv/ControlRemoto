@@ -62,7 +62,7 @@ class Main2Activity : AppCompatActivity(), View.OnClickListener, CompoundButton.
 
         ejecutar!!.setOnClickListener(this)
         detener!!.setOnClickListener{
-            var url="http://192.168.50.1:5000/api/v1/stop?token=$token"
+            var url="http://192.168.50.1:5555/api/v1/stop?token=$token"
                 .httpGet().responseJson{ request, response, result ->
                     when (result) {
                         is Result.Failure -> {println("hubo un fallo")
@@ -79,7 +79,7 @@ class Main2Activity : AppCompatActivity(), View.OnClickListener, CompoundButton.
 
         }
         desconectar!!.setOnClickListener{
-            var url="http://192.168.50.1:5000/api/v1/logout"
+            var url="http://192.168.50.1:5555/api/v1/logout"
                 .httpGet().responseJson{ request, response, result ->
                     when (result) {
                         is Result.Failure -> {println("hubo un fallo")
@@ -102,9 +102,9 @@ class Main2Activity : AppCompatActivity(), View.OnClickListener, CompoundButton.
 
 
         // Aqui podemos modificar/apuntar la dirección IP de la API
-        var baseUrl:String = "http://192.168.50.1:5000/api/v1/move"
+        var baseUrl:String = "http://192.168.50.1:5555/api/v1/move"
 
-        //var url="htpp://192.168.50.1:5000/api/v1/move/$motor/$direccion/$velocidad/$tiempo"+"?token=$token"
+        //var url="htpp://192.168.50.1:5555/api/v1/move/$motor/$direccion/$velocidad/$tiempo"+"?token=$token"
         if ( editVelocidad.text.isEmpty() && !editTiempo.text.isEmpty()){
 
             tiempo = editTiempo?.text.toString().toFloat()
