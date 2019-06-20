@@ -3,22 +3,26 @@ package com.example.controlremoto
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.CompoundButton
 import android.widget.RadioButton
 import android.widget.TextView
+import androidx.appcompat.app.ActionBarDrawerToggle
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.result.Result
 import kotlinx.android.synthetic.main.activity_main2.*
 import org.json.JSONObject
 
-class Main2Activity : AppCompatActivity(), View.OnClickListener, CompoundButton.OnCheckedChangeListener {
+class Main2Activity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener, View.OnClickListener {
+    lateinit var toggle: ActionBarDrawerToggle
+
 
     private var tiempo: Float? = null
     private var velocidad:Int? = null
-    private var titulo:TextView?=null
+    private var titulo: TextView?=null
     private var token:String? = null
     // RadioButtons de la dirección de los motores
     private var radioF: RadioButton? = null
@@ -26,14 +30,13 @@ class Main2Activity : AppCompatActivity(), View.OnClickListener, CompoundButton.
     private var direccion: String? = null
     // RadioButtons del Motor
     private var radioMI:RadioButton?=null
-    private var radioMD:RadioButton?=null
+    private var radioMD: RadioButton?=null
     private var radioAm:RadioButton?=null
     private var motor:String?= null
     // Boton Ejecutar, Detener y Desconectar
     private var ejecutar:Button? = null
     private var detener:Button?=null
-    private var desconectar:Button?=null
-
+    private var desconectar: Button?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,7 +65,7 @@ class Main2Activity : AppCompatActivity(), View.OnClickListener, CompoundButton.
 
         ejecutar!!.setOnClickListener(this)
         detener!!.setOnClickListener{
-            var url="http://192.168.50.1:5555/api/v1/stop?token=$token"
+            var url="http://192.168.3.107:5555/api/v1/stop?token=$token"
                 .httpGet().responseJson{ request, response, result ->
                     when (result) {
                         is Result.Failure -> {println("hubo un fallo")
@@ -79,7 +82,7 @@ class Main2Activity : AppCompatActivity(), View.OnClickListener, CompoundButton.
 
         }
         desconectar!!.setOnClickListener{
-            var url="http://192.168.50.1:5555/api/v1/logout"
+            var url="http://192.168.3.107:5555/api/v1/logout"
                 .httpGet().responseJson{ request, response, result ->
                     when (result) {
                         is Result.Failure -> {println("hubo un fallo")
@@ -96,15 +99,37 @@ class Main2Activity : AppCompatActivity(), View.OnClickListener, CompoundButton.
                 }
         }
 
+        toggle = ActionBarDrawerToggle(this,avanzadoDrawerLayout,R.string.open,R.string.close)
+        avanzadoDrawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
+        avanzadoNavigationView.setNavigationItemSelectedListener {
+            when(it.itemId){
+            R.id.menu_basico -> {
+                startActivity(Intent(this@Main2Activity,Main3Activity::class.java))
+                true
+            }
+                R.id.menu_avanzado -> {
+                    startActivity(Intent(this@Main2Activity,Main2Activity::class.java))
+                    true
+                }
+
+                else -> false
+
+
+        }
+        }
 
     }
+
     override fun onClick(p0: View?) {
 
 
         // Aqui podemos modificar/apuntar la dirección IP de la API
-        var baseUrl:String = "http://192.168.50.1:5555/api/v1/move"
+        var baseUrl:String = "http://192.168.3.107:5555/api/v1/move"
 
-        //var url="htpp://192.168.50.1:5555/api/v1/move/$motor/$direccion/$velocidad/$tiempo"+"?token=$token"
+        //var url="htpp://192.168.3.107:5555/api/v1/move/$motor/$direccion/$velocidad/$tiempo"+"?token=$token"
         if ( editVelocidad.text.isEmpty() && !editTiempo.text.isEmpty()){
 
             tiempo = editTiempo?.text.toString().toFloat()
@@ -206,4 +231,12 @@ class Main2Activity : AppCompatActivity(), View.OnClickListener, CompoundButton.
             }
         }
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(toggle.onOptionsItemSelected(item)){
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }

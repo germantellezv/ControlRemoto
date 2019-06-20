@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/menu_basico"
+            android:title="Modo basico"
+            android:icon="@drawable/ic_joystick"
+            android:iconTint="@color/secondaryColor"
+
+    ></item>
+    <item
+            android:id="@+id/menu_avanzado"
+            android:title="Modo avanzado"
+            android:icon="@drawable/ic_joystick"
+            android:iconTint="@color/secondaryColor"
+
+    ></item>
+</menu>

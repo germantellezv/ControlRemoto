@@ -16,7 +16,6 @@ import org.json.JSONObject
 class MainActivity : AppCompatActivity() {
     private var Conectar:Button?= null
     private var mensaje:TextView? = null
-    private var probar:Button?=null
     private var dirip: EditText?=null
     private var port:EditText?=null
 

@@ -20,5 +20,8 @@
     <string name="BtnMover">MOVER</string>
     <string name="BtnSalir">SALIR</string>
 
+    <!-- Strings usados en Activity 2 - Menu desplegable-->
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
 </resources>

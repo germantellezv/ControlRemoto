@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.controlremoto">
 
-    <uses-permission android:name="android.permission.INTERNET"/> <!-- se agrega esta linea para habilitar los permisos de internet y poder realizar peticiones http -->
+    <uses-permission
+            android:name="android.permission.INTERNET"/> <!-- se agrega esta linea para habilitar los permisos de internet y poder realizar peticiones http -->
 
     <application
             android:allowBackup="true"
@@ -21,12 +22,24 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Main3Activity">
+
+        <activity
+                android:name=".Main3Activity"
+                android:label="Modo basico">
         </activity>
-        <activity android:name=".Main2Activity">
+
+        <activity
+                android:name=".Main2Activity"
+                android:label="Modo avanzado">
         </activity>
-        <activity android:name=".MainActivity">
+
+        <activity
+                android:name=".MainActivity"
+                android:theme="@style/IntroThemeNoActionBar">
         </activity>
+
+
+
     </application>
 
 </manifest>
