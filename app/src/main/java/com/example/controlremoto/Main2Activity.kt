@@ -17,6 +17,8 @@ import kotlinx.android.synthetic.main.activity_main2.*
 import org.json.JSONObject
 
 class Main2Activity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener, View.OnClickListener {
+
+    //variable del menu desplegable
     lateinit var toggle: ActionBarDrawerToggle
 
 
@@ -98,7 +100,7 @@ class Main2Activity : AppCompatActivity(), CompoundButton.OnCheckedChangeListene
                     }
                 }
         }
-
+        // inicio codigo del menu desplegable
         toggle = ActionBarDrawerToggle(this,avanzadoDrawerLayout,R.string.open,R.string.close)
         avanzadoDrawerLayout.addDrawerListener(toggle)
         toggle.syncState()
@@ -119,7 +121,7 @@ class Main2Activity : AppCompatActivity(), CompoundButton.OnCheckedChangeListene
 
 
         }
-        }
+        } // fin del codigo del menu desplegable
 
     }
 
@@ -232,6 +234,7 @@ class Main2Activity : AppCompatActivity(), CompoundButton.OnCheckedChangeListene
         }
     }
 
+    // funcion del menu desplegable
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(toggle.onOptionsItemSelected(item)){
             return true

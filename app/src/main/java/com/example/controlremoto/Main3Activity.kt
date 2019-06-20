@@ -10,12 +10,14 @@ import kotlinx.android.synthetic.main.activity_main3.*
 
 class Main3Activity : AppCompatActivity() {
 
+    // variable del menu desplegable
     lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main3)
 
+        //inicio del menu desplegable
         toggle = ActionBarDrawerToggle(this,basicoDrawerLayout,R.string.open,R.string.close)
         basicoDrawerLayout.addDrawerListener(toggle)
         toggle.syncState()
@@ -34,9 +36,11 @@ class Main3Activity : AppCompatActivity() {
                 else -> false
 
             }
-        }
+        } // fin del menu desplegable
 
     }
+
+    // funcion del menu desplegable
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(toggle.onOptionsItemSelected(item)){
             return true
