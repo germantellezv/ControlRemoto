@@ -18,6 +18,9 @@ class MainActivity : AppCompatActivity() {
     private var mensaje:TextView? = null
     private var dirip: EditText?=null
     private var port:EditText?=null
+    private var ipaddress:String? = null
+    private var portNumber:String?=null
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,12 +32,12 @@ class MainActivity : AppCompatActivity() {
         port = findViewById(R.id.editPort) as EditText
 
         // Configurar direccion ip y puerto de manera centralizada
-        var ipaddress = dirip?.text
-        var puerto = port?.text
+        ipaddress = dirip?.text.toString()
+        portNumber = port?.text.toString()
 
         Conectar?.setOnClickListener{
 
-            var url="http://$ipaddress:$puerto/api/v1/login"
+            var url="http://$ipaddress:$portNumber/api/v1/login"
                 .httpGet().responseJson{ request, response, result ->
                     when (result) {
                         is Result.Failure -> {
@@ -48,8 +51,13 @@ class MainActivity : AppCompatActivity() {
                             var token:String = aux.getString("token")
                             //mensaje!!.text = result.get().obj().toString()
 
+                            ipaddress = dirip?.text.toString()
+                            portNumber = port?.text.toString()
+
                             val intent = Intent(this,Main2Activity::class.java)
                             intent.putExtra("token",token)
+                            intent.putExtra("ipaddress",ipaddress)
+                            intent.putExtra("portNumber",portNumber)
                             startActivity(intent)
                         }
                     }

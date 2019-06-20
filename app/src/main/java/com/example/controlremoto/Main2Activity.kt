@@ -26,6 +26,10 @@ class Main2Activity : AppCompatActivity(), CompoundButton.OnCheckedChangeListene
     private var velocidad:Int? = null
     private var titulo: TextView?=null
     private var token:String? = null
+    private var ipaddress:String?=null
+    private var port:String?=null
+    
+    
     // RadioButtons de la dirección de los motores
     private var radioF: RadioButton? = null
     private var radioR: RadioButton? = null
@@ -57,17 +61,25 @@ class Main2Activity : AppCompatActivity(), CompoundButton.OnCheckedChangeListene
         // Comportamiento de los RadioButton de la dirección del motor
         radioF!!.setOnCheckedChangeListener(this)
         radioR!!.setOnCheckedChangeListener(this)
+        
+        
         // Comportamiento de los RadioButton de los motores
         radioMI!!.setOnCheckedChangeListener(this)
         radioMD!!.setOnCheckedChangeListener(this)
         radioAm!!.setOnCheckedChangeListener(this)
+        
+        
         // La variable token contiene el token de una peticion GET del activity anterior
+        // La variable ipaddress contiene la Direccion IP a donde se realizaran las peticiones
+        // La variable port contiene el puerto para realizar las peticiones
         val objetoIntent: Intent=intent
         token = objetoIntent.getStringExtra("token")
-
+        ipaddress = objetoIntent.getStringExtra("ipaddress")
+        port = objetoIntent.getStringExtra("portNumber")
+        
         ejecutar!!.setOnClickListener(this)
         detener!!.setOnClickListener{
-            var url="http://192.168.3.107:5555/api/v1/stop?token=$token"
+            var url="http://$ipaddress:$port/api/v1/stop?token=$token"
                 .httpGet().responseJson{ request, response, result ->
                     when (result) {
                         is Result.Failure -> {println("hubo un fallo")
@@ -84,7 +96,7 @@ class Main2Activity : AppCompatActivity(), CompoundButton.OnCheckedChangeListene
 
         }
         desconectar!!.setOnClickListener{
-            var url="http://192.168.3.107:5555/api/v1/logout"
+            var url="http://$ipaddress:$port/api/v1/logout"
                 .httpGet().responseJson{ request, response, result ->
                     when (result) {
                         is Result.Failure -> {println("hubo un fallo")
@@ -129,9 +141,9 @@ class Main2Activity : AppCompatActivity(), CompoundButton.OnCheckedChangeListene
 
 
         // Aqui podemos modificar/apuntar la dirección IP de la API
-        var baseUrl:String = "http://192.168.3.107:5555/api/v1/move"
+        var baseUrl:String = "http://$ipaddress:$port/api/v1/move"
 
-        //var url="htpp://192.168.3.107:5555/api/v1/move/$motor/$direccion/$velocidad/$tiempo"+"?token=$token"
+        //var url="htpp://$ipaddress:$port/api/v1/move/$motor/$direccion/$velocidad/$tiempo"+"?token=$token"
         if ( editVelocidad.text.isEmpty() && !editTiempo.text.isEmpty()){
 
             tiempo = editTiempo?.text.toString().toFloat()
