@@ -3,14 +3,14 @@
 
     <item
             android:id="@+id/menu_basico"
-            android:title="Modo basico"
+            android:title="Modo joystick"
             android:icon="@drawable/ic_joystick"
             android:iconTint="@color/secondaryColor"
 
     ></item>
     <item
             android:id="@+id/menu_avanzado"
-            android:title="Modo avanzado"
+            android:title="Modo manual"
             android:icon="@drawable/ic_joystick"
             android:iconTint="@color/secondaryColor"
 
