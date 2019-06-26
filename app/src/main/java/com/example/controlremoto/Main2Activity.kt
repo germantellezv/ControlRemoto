@@ -25,6 +25,8 @@ class Main2Activity : AppCompatActivity(), CompoundButton.OnCheckedChangeListene
     private var tiempo: Float? = null
     private var velocidad:Int? = null
     private var titulo: TextView?=null
+
+    // variable de datos de conexion a la API
     private var token:String? = null
     private var ipaddress:String?=null
     private var port:String?=null
@@ -75,7 +77,7 @@ class Main2Activity : AppCompatActivity(), CompoundButton.OnCheckedChangeListene
         val objetoIntent: Intent=intent
         token = objetoIntent.getStringExtra("token")
         ipaddress = objetoIntent.getStringExtra("ipaddress")
-        port = objetoIntent.getStringExtra("portNumber")
+        port = objetoIntent.getStringExtra("port")
         
         ejecutar!!.setOnClickListener(this)
         detener!!.setOnClickListener{
@@ -120,8 +122,12 @@ class Main2Activity : AppCompatActivity(), CompoundButton.OnCheckedChangeListene
 
         avanzadoNavigationView.setNavigationItemSelectedListener {
             when(it.itemId){
-            R.id.menu_basico -> {
-                startActivity(Intent(this@Main2Activity,Main3Activity::class.java))
+            R.id.menu_joystick -> {
+                val intent = Intent(this,Main3Activity::class.java)
+                intent.putExtra("token",token)
+                intent.putExtra("ipaddress",ipaddress)
+                intent.putExtra("port",port)
+                startActivity(intent)
                 true
             }
                 R.id.menu_avanzado -> {

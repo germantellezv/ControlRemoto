@@ -69,9 +69,9 @@ public class JoystickView extends SurfaceView implements SurfaceHolder.Callback,
 
             Canvas myCanvas = this.getHolder().lockCanvas();
             Paint colors = new Paint();
-            //myCanvas.drawColor(getResources().getColor(R.color.secondaryColor), PorterDuff.Mode.CLEAR); // con esta linea puedo controlar el color de fondo del layout del joystick
+
             //myCanvas.drawColor(0x00AAAAAA, PorterDuff.Mode.CLEAR); // con esta linea puedo controlar el color de fondo del layout del joystick
-            myCanvas.drawARGB(255,25,118,210); // con esta linea tambien puedo controlar el color mas especificamente usando el rgb y alfa
+            myCanvas.drawARGB(255,25,118,210); // COLOR DE FONDO DEL JOYSTICK VIEW. ALPHA ES LA TRANSPARENCIA.
             colors.setARGB(100,50,50,50); //colors.setARGB(int alpha,int red, int green, int blue); // colors of joystick itself
             myCanvas.drawCircle(centerX, centerY, baseRadius, colors); // Draw the joystick base
             colors.setARGB(255,128,214,255);

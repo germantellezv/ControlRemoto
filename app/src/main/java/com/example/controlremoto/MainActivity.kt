@@ -17,9 +17,9 @@ class MainActivity : AppCompatActivity() {
     private var Conectar:Button?= null
     private var mensaje:TextView? = null
     private var dirip: EditText?=null
-    private var port:EditText?=null
+    private var puerto:EditText?=null
     private var ipaddress:String? = null
-    private var portNumber:String?=null
+    private var port:String?=null
 
 
 
@@ -29,15 +29,15 @@ class MainActivity : AppCompatActivity() {
         mensaje = findViewById(R.id.textView3) as TextView
         dirip = findViewById(R.id.ipAddress) as EditText
         Conectar = findViewById(R.id.ButtonConnect) as Button
-        port = findViewById(R.id.editPort) as EditText
+        puerto = findViewById(R.id.editPort) as EditText
 
         // Configurar direccion ip y puerto de manera centralizada
         ipaddress = dirip?.text.toString()
-        portNumber = port?.text.toString()
+        port = puerto?.text.toString()
 
         Conectar?.setOnClickListener{
 
-            var url="http://$ipaddress:$portNumber/api/v1/login"
+            var url="http://$ipaddress:$port/api/v1/login"
                 .httpGet().responseJson{ request, response, result ->
                     when (result) {
                         is Result.Failure -> {
@@ -52,13 +52,14 @@ class MainActivity : AppCompatActivity() {
                             //mensaje!!.text = result.get().obj().toString()
 
                             ipaddress = dirip?.text.toString()
-                            portNumber = port?.text.toString()
+                            port = puerto?.text.toString()
 
                             val intent = Intent(this,Main2Activity::class.java)
                             intent.putExtra("token",token)
                             intent.putExtra("ipaddress",ipaddress)
-                            intent.putExtra("portNumber",portNumber)
+                            intent.putExtra("port",port)
                             startActivity(intent)
+
                         }
                     }
                 }
