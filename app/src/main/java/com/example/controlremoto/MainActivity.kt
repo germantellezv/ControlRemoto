@@ -10,40 +10,43 @@ import android.widget.Toast
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.result.Result
-import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
-    private var Conectar:Button?= null
     private var mensaje:TextView? = null
-    private var dirip: EditText?=null
+
+    //private var editIpAddress: EditText?=null
     private var puerto:EditText?=null
-    private var ipaddress:String? = null
-    private var port:String?=null
 
-
+    private var Conectar:Button?= null
+    private var txvDebug: TextView?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         mensaje = findViewById(R.id.textView3) as TextView
-        dirip = findViewById(R.id.ipAddress) as EditText
+        var editIpAddress = findViewById(R.id.editIpAddress) as EditText
         Conectar = findViewById(R.id.ButtonConnect) as Button
         puerto = findViewById(R.id.editPort) as EditText
+        txvDebug = findViewById(R.id.txvDebug) as TextView
 
         // Configurar direccion ip y puerto de manera centralizada
-        ipaddress = dirip?.text.toString()
-        port = puerto?.text.toString()
+        var api_ip = editIpAddress.text
+        var api_port = puerto?.text
 
         Conectar?.setOnClickListener{
 
-            var url="http://$ipaddress:$port/api/v1/login"
+            /*var url:String="http://$api_ip:$api_port/api/v1/login"
+            var texto = "Hola, soy $api_ip"
+            txvDebug?.text=url*/
+            var url="http://$api_ip:$api_port/api/v1/login"
                 .httpGet().responseJson{ request, response, result ->
                     when (result) {
                         is Result.Failure -> {
                             Toast.makeText(this,"Error de conexión", Toast.LENGTH_SHORT).show()
                             mensaje!!.text = result.get().toString()
                         }
+
                         is Result.Success -> {
                             //var token:String? = ""
                             var aux: JSONObject = JSONObject()
@@ -51,15 +54,14 @@ class MainActivity : AppCompatActivity() {
                             var token:String = aux.getString("token")
                             //mensaje!!.text = result.get().obj().toString()
 
-                            ipaddress = dirip?.text.toString()
-                            port = puerto?.text.toString()
+                            var ipaddress = api_ip.toString()
+                            var port = api_port?.toString()
 
                             val intent = Intent(this,Main2Activity::class.java)
                             intent.putExtra("token",token)
                             intent.putExtra("ipaddress",ipaddress)
                             intent.putExtra("port",port)
                             startActivity(intent)
-
                         }
                     }
                 }
